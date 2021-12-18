@@ -88,11 +88,11 @@ class MapActivity : AppCompatActivity() {
         )
 
         fusedLocationProvider?.lastLocation?.addOnSuccessListener { loc ->
-            val altitude = loc.altitude
+            val latitude = loc.latitude
             val longitude = loc.longitude
-            Toast.makeText(this, "$longitude, $altitude", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "$latitude, $longitude", Toast.LENGTH_LONG).show()
             mapView.map.move(
-                CameraPosition(Point(longitude, altitude), 14.0f, 0.0f, 0.0f),
+                CameraPosition(Point(latitude, longitude), 14.0f, 0.0f, 0.0f),
                 Animation(Animation.Type.SMOOTH, 5F),
                 null
             )
